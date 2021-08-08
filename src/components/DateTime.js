@@ -38,7 +38,7 @@ const WeatherItem = ({title, value, unit}) => {
   );
 };
 
-const DateTime = ({current, lat, lon, timezone, temp}) => {
+const DateTime = ({current, lat, lon, timezone, currenTemp}) => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
@@ -104,11 +104,15 @@ const DateTime = ({current, lat, lon, timezone, temp}) => {
         </View>
       </View>
       <View style={styles.rightAlign}>
-        <Text style={styles.timezone}>{timezone}</Text>
-        <Text style={styles.latlong}>
-          {lat}N {lon}E
-        </Text>
+        <>
+          <Text style={styles.timezone}>{timezone}</Text>
+          <Text style={styles.latlong}>
+            {lat}N {lon}E
+          </Text>
+        </>
       </View>
+      <Text style={styles.cuurentHeading}>Temp</Text>
+      <Text style={styles.currenTemp}>{currenTemp}&#176;C</Text>
     </SafeAreaView>
   );
 };
@@ -161,6 +165,21 @@ const styles = StyleSheet.create({
     color: '#eee',
     fontSize: 14,
     fontWeight: '100',
+  },
+  currenTemp: {
+    fontSize: 40,
+    color: 'white',
+    fontWeight: '100',
+    position: 'absolute',
+    right: 0,
+    top: 140,
+  },
+  cuurentHeading: {
+    position: 'absolute',
+    right: 95,
+    top: 120,
+    color: 'white',
+    fontWeight: '400',
   },
 });
 
