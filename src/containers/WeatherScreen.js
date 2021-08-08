@@ -11,12 +11,10 @@ import Loader from '../components/Loader';
 export class WeatherScreen extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       latitude: 0,
       longitude: 0,
       forecast: [],
-      error: '',
     };
   }
   componentDidMount() {
@@ -46,6 +44,7 @@ export class WeatherScreen extends Component {
               lat={this.props.DataReducer.data.lat}
               lon={this.props.DataReducer.data.lon}
               current={this.props.DataReducer.data.current}
+              currenTemp={this.props.DataReducer.data.current.temp}
             />
             <WeatherCard weatherData={this.props.DataReducer.data.daily} />
           </LinearGradient>

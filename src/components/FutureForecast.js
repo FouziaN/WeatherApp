@@ -18,8 +18,16 @@ const FutureForecast = ({data}) => {
 };
 
 const FutureForecastItem = ({forecastItem}) => {
+  const img = {
+    uri:
+      'https://openweathermap.org/img/wn/' +
+      forecastItem.weather[0].icon +
+      '@2x.png',
+  };
+
   return (
     <View style={styles.futureForecastItemContainer}>
+      <Image source={img} style={styles.image} />
       <Text style={styles.day}>
         {moment(forecastItem.dt * 1000).format('ddd')}
       </Text>
@@ -61,5 +69,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '100',
     textAlign: 'center',
+  },
+  image: {
+    width: 50,
+    height: 50,
   },
 });

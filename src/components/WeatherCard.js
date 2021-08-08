@@ -18,8 +18,13 @@ const WeatherScroll = ({weatherData}) => {
 
 const CurrentTempEl = ({data}) => {
   if (data && data.weather) {
+    const img = {
+      uri:
+        'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@4x.png',
+    };
     return (
       <View style={styles.currentTempContainer}>
+        <Image source={img} style={styles.image} />
         <Text style={styles.day}>{moment(data.dt * 1000).format('dddd')}</Text>
         <View>
           <Text style={styles.temp}>Night - {data.temp.night}&#176;C</Text>
@@ -38,8 +43,8 @@ const styles = StyleSheet.create({
     flex: 0.5,
   },
   image: {
-    height: 20,
-    width: 20,
+    height: 50,
+    width: 50,
   },
   currentTempContainer: {
     flexDirection: 'row',
@@ -71,6 +76,10 @@ const styles = StyleSheet.create({
   },
   otherContainer: {
     paddingRight: 40,
+  },
+  image: {
+    width: 50,
+    height: 50,
   },
 });
 
